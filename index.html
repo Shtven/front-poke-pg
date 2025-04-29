@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>PokéAPI</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #fceabb, #f8b500);
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      width: 100%;
+    }
+
+    .form-container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-container label,
+    .form-container input,
+    .form-container button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      width: 100%;
+      background-color: #ffcc00;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffaa00;
+    }
+
+    .table-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      flex-grow: 1;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    thead {
+      background-color: #ffcc00;
+    }
+
+    thead th {
+      padding: 12px;
+      font-weight: bold;
+      color: #333;
+      font-size: 1rem;
+      border-bottom: 2px solid #e0e0e0;
+      text-align: center;
+    }
+
+    tbody td {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+    }
+
+    tbody tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    #resultado {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>PokéAPI</h1>
+
+  <div class="container">
+    <!-- Formulario izquierdo -->
+    <div class="form-container">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" placeholder="Nombre del Pokémon">
+
+      <label for="noPokedex">No Pokédex:</label>
+      <input type="number" id="noPokedex" placeholder="Número Pokédex">
+
+      <label for="tipo1">Tipo 1:</label>
+      <input type="text" id="tipo1" placeholder="Tipo primario">
+
+      <label for="tipo2">Tipo 2:</label>
+      <input type="text" id="tipo2" placeholder="Tipo secundario">
+
+      <label for="habilidad">Habilidad:</label>
+      <input type="text" id="habilidad" placeholder="Habilidad principal">
+
+      <label for="region">Región:</label>
+      <input type="text" id="region" placeholder="Región de origen">
+
+      <label for="descripcion">Descripción:</label>
+      <input type="text" id="descripcion" placeholder="Descripción breve">
+
+      <button onclick="postPokemon()">Agregar Pokémon</button>
+    </div>
+
+    <!-- Tabla derecha -->
+    <div class="table-container">
+      <button onclick="getPokemons()">Cargar Pokémon</button>
+      <div id="resultado"></div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="callrestapi.js"></script>
+
+</body>
+</html>
