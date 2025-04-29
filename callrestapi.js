@@ -1,4 +1,4 @@
-var url = "http://34.70.63.72:8080/api/pokemon";
+var url = "http://34.70.63.72:8085/api/pokemon";
 
 function postPokemon() {
 
